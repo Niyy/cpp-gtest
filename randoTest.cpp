@@ -24,13 +24,55 @@ class RandoTest : public ::testing::Test
 		virtual void TearDown(){} //clean up after each test, (before destructor) 
 };
 
+/* TEST(<The thing you want to test>, <Name of failure>) TEST is what you want to name all your test functions */
 TEST(RandoTest, sanityCheck)
 {
 	Rando rando;
 	ASSERT_TRUE( true );
 }
 
-TEST(RandoTest, thisWillFail)
+
+TEST(RandoTest, mostPopulareZero)
 {
-	ASSERT_TRUE( false );
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit(0), 0);
+}
+
+
+TEST(RandoTest, mostPopulareTie)
+{
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit(331311), -1);
+}
+
+TEST(RandoTest, mostPopulareTenWayTie)
+{
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit(1234567890), -1);
+}
+
+TEST(RandoTest, mostPopulareTenWayTie)
+{
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit(31311), 1);
+}
+
+
+TEST(RandoTest, mostPopulareTenWayTie)
+{
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit(222), 2);
+}
+
+
+TEST(RandoTest, mostPopulareTenWayTie)
+{
+	Rando rando;
+
+	ASSERT_EQ(rando.mostPopularDigit('a'), -1);
 }
